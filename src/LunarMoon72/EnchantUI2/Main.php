@@ -52,7 +52,7 @@ class Main extends PluginBase {
     }
 
     public function weapon($player){
-        $form = new CustomForm(function (Player $player, int $data = null){
+        $form = new CustomForm(function (Player $player, array $data = null){
             if($data === null){
                 return true;
             }
