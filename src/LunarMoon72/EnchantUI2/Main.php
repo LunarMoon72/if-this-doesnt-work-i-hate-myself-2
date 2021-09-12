@@ -30,7 +30,7 @@ class Main extends PluginBase {
 
     public function select($player){
         $form = new SimpleForm(function (Player $player, $data){
-            if(#data === null){
+            if($data === null){
                 return true;
             }
 
