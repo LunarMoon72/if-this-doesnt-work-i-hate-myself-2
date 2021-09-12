@@ -13,6 +13,12 @@ use jojoe77777\FormAPI\SimpleForm;
 use pocketmine\Player;
 use pocketmine\Server;
 
+use pocketmine\item\enchantment\Enchantment;
+use pocketmine\item\enchantment\EnchantmentEntry;
+use pocketmine\item\enchantment\EnchantmentList;
+
+use pocketmine\item\Item;
+
 class Main extends PluginBase {
 
     public function onEnabled() : void {
@@ -52,6 +58,11 @@ class Main extends PluginBase {
     }
 
     public function weapon($player){
+        $inv = $player->getInventory();
+        $item = $inv->getItemInHand();
+        $sharpness = Enchantment::getEnchantment(9);
+        $unbreaking = Enchantment::getEnchantment(17);
+
         $form = new CustomForm(function (Player $player, array $data = null){
             if($data === null){
                 return true;
@@ -59,11 +70,14 @@ class Main extends PluginBase {
 
             switch($data){
                 case 0:
-                    $this->getServer()->dispatchCommand($player, "enchant " . $player->getName() . " sharpness " . $data[1]);
+                $item->addEnchantment($sharpness);
+                $sharpness->setLevel($data[1]);
                 break;
 
                 case 2:
-                    $this->getServer()->dispatchCommand($player, "enchant " . $player->getName() . " sharpness " . $data[3]);
+                    $item->addEnchantment($unbreaking);
+                    $unbreaking->setLevel($data[3]);
+                break;
 
             }
         });
