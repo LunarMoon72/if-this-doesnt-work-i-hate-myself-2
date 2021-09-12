@@ -54,7 +54,7 @@ class Main extends PluginBase {
     }
 
     public function weapon($player){
-        $console = new ConsoleCommandSender;
+        $console = new ConsoleCommandSender();
         $form = new CustomForm(function (Player $player, array $data = null){
             if($data === null){
                 return true;
