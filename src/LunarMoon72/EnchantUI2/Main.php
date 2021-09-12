@@ -64,6 +64,7 @@ class Main extends PluginBase {
 
                 case 2:
                     $this->getServer()->dispatchCommand($player, "enchant " . $player->getName() . " sharpness " . $data[3]);
+                break;
 
             }
         });
