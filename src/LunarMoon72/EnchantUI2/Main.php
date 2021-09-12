@@ -67,9 +67,9 @@ class Main extends PluginBase {
         });
         $form->setTitle("Enchant UI Remastered");
         $form->addToggle("Sharpness");
-        $form->addSlider("LVL", 0, 1, 5);
+        $form->addSlider("LVL", 0, 5, 10);
         $form->addToggle("Unbreaking");
-        $form->addSlider("LVL", 0, 1, 5);
+        $form->addSlider("LVL", 0, 3, 10);
         $form->sendToPlayer($player);
         return $form;
     }
