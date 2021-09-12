@@ -1,0 +1,14 @@
+name: EnchantUi2
+author: LunarMoon72
+api: 3.22.2
+version: 0.0.1
+main: LunarMoon72\EnchantUI2\Main
+
+commands:
+    enchantui:
+        permission: enchantui2.cmd
+        description: Opens UI
+
+permissions:
+    enchantui2.cmd:
+        default: op
