@@ -13,6 +13,8 @@ use jojoe77777\FormAPI\SimpleForm;
 use pocketmine\Player;
 use pocketmine\Server;
 
+use pocketmine\command\ConsoleCommandSender;
+
 class Main extends PluginBase {
 
     public function onEnabled() : void {
@@ -52,6 +54,7 @@ class Main extends PluginBase {
     }
 
     public function weapon($player){
+        $console = new ConsoleCommandSender;
         $form = new CustomForm(function (Player $player, array $data = null){
             if($data === null){
                 return true;
@@ -59,11 +62,11 @@ class Main extends PluginBase {
 
             switch($data){
                 case 0:
-                    $this->getServer()->dispatchCommand($player, "enchant " . $player->getName() . " sharpness " . $data[1]);
+                    $this->getServer()->dispatchCommand($console, "enchant " . $player->getName() . " 9 " . $data[1]);
                 break;
 
                 case 2:
-                    $this->getServer()->dispatchCommand($player, "enchant " . $player->getName() . " sharpness " . $data[3]);
+                    $this->getServer()->dispatchCommand($console, "enchant " . $player->getName() . " 17 " . $data[3]);
                 break;
 
             }
