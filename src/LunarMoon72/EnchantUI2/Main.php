@@ -52,8 +52,10 @@ class Main extends PluginBase {
     }
 
     public function weapon($player){
-        $form = new CustomForm(function (Player $player, $data){
-            var_dump($data);
+        $form = new CustomForm(function (Player $player, int $data = null){
+            if($data === null){
+                return true;
+            }
 
             switch($data){
                 case 0:
@@ -67,9 +69,9 @@ class Main extends PluginBase {
         });
         $form->setTitle("Enchant UI Remastered");
         $form->addToggle("Sharpness");
-        $form->addSlider("LVL", 0, 5, 10);
+        $form->addSlider("LVL", 0, 5);
         $form->addToggle("Unbreaking");
-        $form->addSlider("LVL", 0, 3, 10);
+        $form->addSlider("LVL", 0, 3);
         $form->sendToPlayer($player);
         return $form;
     }
