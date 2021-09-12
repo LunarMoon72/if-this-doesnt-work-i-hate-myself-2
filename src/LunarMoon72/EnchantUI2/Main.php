@@ -10,6 +10,9 @@ use pocketmine\command\CommandSender;
 use jojoe77777\FormAPI\CustomForm;
 use jojoe77777\FormAPI\SimpleForm;
 
+use pocketmine\Player;
+use pocketmine\Server;
+
 class Main extends PluginBase {
 
     public function onEnabled() : void {
